@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Волейбол: Путь к мастерству</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #334e68; 
+            background-color: #e1e8ed; 
+            position: relative;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('images/fon.jpg'); 
+            background-size: cover;
+            background-position: center;
+            filter: blur(6px) brightness(1.2) saturate(0.8); 
+            z-index: -1;
+            transform: scale(1.05); 
+        }
+
+        header {
+            background: linear-gradient(135deg, rgba(60, 122, 167, 0.85), rgba(90, 156, 203, 0.85)); 
+            backdrop-filter: blur(10px);
+            color: #3287dc; 
+            padding: 3rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(18, 14, 68, 0);
+            border-bottom: 3px solid rgba(255, 255, 255, 0.6);
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1.5px;
+            text-shadow: 1px 1px 3px rgba(255,255,255,0.5);
+            color: #e0e3e7;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-style: italic;
+            color: #eaebee;
+        }
+
+        nav {
+            background: linear-gradient(90deg, rgba(125, 168, 205, 0.9), rgba(162, 210, 255, 0.9)); 
+            backdrop-filter: blur(8px);
+            padding: 1rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            border-bottom: 1px solid rgba(255,255,255,0.5);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #1e3a5f;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            transition: color 0.3s ease, transform 0.3s ease;
+            display: inline-block;
+        }
+
+        nav a:hover {
+            color: #fff;
+            transform: scale(1.05);
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        section {
+            background: rgba(255, 255, 255, 0.75); 
+            backdrop-filter: blur(12px); 
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+        }
+
+        section:hover {
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+            background: rgba(255, 255, 255, 0.85);
+        }
+
+        h2 {
+            color: #2c5282; 
+            border-bottom: 3px solid rgba(189, 224, 254, 0.8); 
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        h3 {
+            color: #4a7c9d;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            border-left: 4px solid #bde0fe;
+            padding-left: 10px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 1.5rem 0;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.4s ease;
+        }
+        
+        img:hover {
+            transform: scale(1.02);
+        }
+
+        ul, ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.8rem;
+            font-size: 1.05rem;
+        }
+
+        li strong {
+            color: #2c5282; 
+        }
+
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        article {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 1.5rem;
+            border-left: 5px solid #a2d2ff; 
+            border-radius: 12px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+        }
+
+        article:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+        }
+
+        article h4 {
+            color: #2c5282;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        article p {
+            font-size: 0.95rem;
+            color: #4a5568;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .gallery-grid img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            margin: 0;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .gallery-grid img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            z-index: 10;
+            position: relative;
+        }
+
+        a {
+            color: #4a7c9d;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: #1e3a5f;
+            text-decoration: underline;
+        }
+
+        footer {
+            background: linear-gradient(135deg, rgba(163, 204, 233, 0.9), rgba(131, 179, 214, 0.9));
+            backdrop-filter: blur(8px);
+            color: #1e3a5f;
+            text-align: center;
+            padding: 2.5rem;
+            margin-top: 3rem;
+            border-top: 4px solid rgba(255, 255, 255, 0.6);
+        }
+
+        footer a {
+            color: #fff;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        footer a:hover {
+            color: #e1e8ed;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            header h1 {
+                font-size: 2rem;
+            }
+            section {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Волейбол: Игра для каждого</h1>
+        <p>Твой путеводитель в мир большого спорта</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#history">История</a></li>
+            <li><a href="#rules">Правила</a></li>
+            <li><a href="#training">Тренировки</a></li>
+            <li><a href="#gallery">Галерея</a></li>
+            <li><a href="#blog">Блог</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="history">
+            <h2>История волейбола</h2>
+            <p>Волейбол - это не просто игра, это целая культура, объединяющая миллионы людей по всему миру. Родиной волейбола считаются Соединенные Штаты Америки.</p>
+            
+            <img src="images/ball.jpg" alt="Волейбольный мяч на площадке">
+
+            <h3>Ключевые вехи развития</h3>
+            <ul>
+                <li><strong>1895 год:</strong> Уильям Дж. Морган придумал игру «минтонет» (прообраз волейбола).</li>
+                <li><strong>1947 год:</strong> Основана Международная федерация волейбола (FIVB).</li>
+                <li><strong>1964 год:</strong> Волейбол включен в программу Олимпийских игр.</li>
+            </ul>
+            <p>Подробнее об истории можно прочитать в <a href="https://ru.wikipedia.org/wiki/Волейбол" target="_blank" rel="noopener noreferrer">Википедии</a>.</p>
+        </section>
+
+        <section id="rules">
+            <h2>Основные правила игры</h2>
+            <p>Чтобы играть в волейбол, нужно знать базовые правила. Это поможет избежать ошибок и получить удовольствие от процесса.</p>
+            
+            <img src="images/players.jpg" alt="Волейбольная сетка и игроки">
+
+            <h3>Что нужно знать новичку?</h3>
+            <ol>
+                <li>Игра ведется двумя командами по 6 человек.</li>
+                <li>Цель - перебросить мяч через сетку так, чтобы он коснулся пола на стороне соперника.</li>
+                <li>Касание мяча допускается не более трех раз подряд.</li>
+                <li>Подача выполняется из-за лицевой линии.</li>
+            </ol>
+        </section>
+
+        <section id="training">
+            <h2>Тренировочный процесс</h2>
+            <p>Регулярные тренировки - залог успеха. Важно уделять внимание как физической подготовке, так и технике.</p>
+            
+            <img src="images/exercises.jpg" alt="Тренировка по волейболу">
+
+            <h3>Основные виды упражнений</h3>
+            <ul>
+                <li><strong>Разминка:</strong> Суставная гимнастика и бег.</li>
+                <li><strong>Передачи:</strong> Верхняя и нижняя передача в парах.</li>
+                <li><strong>Подачи:</strong> Отработка точности и силы удара.</li>
+                <li><strong>Игровая практика:</strong> Двусторонние игры.</li>
+            </ul>
+        </section>
+
+        <section id="gallery">
+            <h2>Галерея</h2>
+            <p>Моменты игры, которые вдохновляют. Красота полета мяча и эмоции победы.</p>
+            
+            <div class="gallery-grid">
+                <img src="images/play.webp" alt="Игрок выполняет подачу">
+                <img src="images/block.webp" alt="Блок на сетке">
+                <img src="images/pobeda.jpg" alt="Командная радость">
+                <img src="images/ui.jpeg" alt="Пляжный волейбол">
+            </div>
+        </section>
+
+        <section id="blog">
+            <h2>Полезные статьи и лайфхаки</h2>
+            <p>Вдохновляйтесь опытом профессионалов и улучшайте свою игру.</p>
+            
+            <div class="articles-grid">
+                <article>
+                    <h4>Правила игры в волейбол 2026</h4>
+                    <p>Основные правила игры в волейбол кратко. Что изменилось в этом сезоне?</p>
+                </article>
+                <article>
+                    <h4>Как освоить силовую подачу?</h4>
+                    <p>В этом ролике мы расскажем все, что нужно знать о силовой подаче - одной из самых мощных техник.</p>
+                </article>
+                <article>
+                    <h4>Техника безопасности</h4>
+                    <p>Поговорим о том, какие правила стоит соблюдать во время игры, чтобы избежать травм.</p>
+                </article>
+            </div>
+            
+            <p style="margin-top: 1.5rem;">Полный архив статей доступен на <a href="https://rusvolley.ru/volleyblog/" target="_blank" rel="noopener noreferrer">официальном сайте VolleyBlog</a>.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Волейбол: Путь к мастерству. Все права защищены.</p>
+        <p>Связаться с нами: <a href="mailto:info@volleyball-site.ru">info@volleyball-site.ru</a></p>
+    </footer>
+
+</body>
+</html>
